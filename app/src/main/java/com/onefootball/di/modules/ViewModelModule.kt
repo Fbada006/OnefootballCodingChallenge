@@ -7,6 +7,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
+/**Provide ViewModels to the dependency graph*/
 @Module
 abstract class ViewModelModule {
 

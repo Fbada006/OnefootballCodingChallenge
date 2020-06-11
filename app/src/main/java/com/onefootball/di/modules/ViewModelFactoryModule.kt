@@ -5,6 +5,7 @@ import com.onefootball.di.factory.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 
+/**Provide the Factory to the graph*/
 @Module
 abstract class ViewModelFactoryModule {
 
