@@ -16,8 +16,8 @@ import javax.inject.Inject
 
 class MyNewsActivity : AppCompatActivity() {
 
-    lateinit var recyclerView: RecyclerView
-    lateinit var myAdapter: NewsAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var myAdapter: NewsAdapter
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
