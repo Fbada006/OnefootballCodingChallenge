@@ -28,8 +28,8 @@ class NewsAdapter : ListAdapter<News, NewsAdapter.NewsViewHolder>(NewsDiffCallba
         val news = getItem(position)
 
         holder.titleView.text = news.title
-        holder.newsView.load(url = news.imageURL)
-        holder.resourceImage.load(url = news.resourceURL)
+        holder.newsView.load(uri = news.imageURL)
+        holder.resourceImage.load(uri = news.resourceURL)
         holder.resourceName.text = news.resourceName
         holder.itemView.setOnClickListener {
             it.context.startActivity(
