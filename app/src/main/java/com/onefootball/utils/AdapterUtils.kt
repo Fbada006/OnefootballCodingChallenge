@@ -14,3 +14,9 @@ class NewsDiffCallback : DiffUtil.ItemCallback<News>() {
         return oldItem == newItem
     }
 }
+
+/**The click listener for the RecyclerView passing the clicked [News] in a lambda*/
+class OnNewsClickListener(val clickListener: (news: News?) -> Unit) {
+    /**Called when a news item is clicked*/
+    fun onClick(news: News?) = clickListener(news)
+}
