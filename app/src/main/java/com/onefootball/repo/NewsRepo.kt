@@ -8,11 +8,12 @@ import com.google.gson.reflect.TypeToken
 import com.onefootball.model.News
 import com.onefootball.model.NewsResult
 import java.nio.charset.Charset
+import javax.inject.Inject
 
 /**This class gets the JSON and parses it using JSON then presents it as
  * a LiveData to the ViewModel
  * */
-class NewsRepo(private val context: Context) {
+class NewsRepo @Inject constructor(private val context: Context) {
 
     private val newsLiveData = MutableLiveData<List<News>>()
 

@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -44,7 +46,14 @@ dependencies {
     //GSON for serialization
     implementation "com.google.code.gson:gson:$gsonVersion"
 
+    //Ktx activity with cool extension functions
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
+
+    //Dagger2
+    implementation "com.google.dagger:dagger:$dagger2Version"
+    kapt "com.google.dagger:dagger-compiler:$dagger2Version"
+    implementation "com.google.dagger:dagger-android:$dagger2Version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger2Version"
 
     //Testing deps
     testImplementation "junit:junit:$jUnitVersion"
