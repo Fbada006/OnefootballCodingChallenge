@@ -15,6 +15,7 @@ buildscript {
         jUnitVersion = '4.13'
         runnerVersion = '1.2.0'
         espressoVersion = '3.2.0'
+        timberVersion = '4.7.1'
     }
 
     repositories {

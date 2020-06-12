@@ -58,6 +58,9 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$dagger2Version"
     kapt "com.google.dagger:dagger-android-processor:$dagger2Version"
 
+    //Timber for logging
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
     //Testing deps
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "androidx.test:runner:$runnerVersion"
