@@ -39,3 +39,22 @@ code challenge to you.
 ![](https://media.giphy.com/media/uADx98ByhpOwcE7KhW/giphy.gif)
 
 :rocket: Have fun!
+
+## Refactor process
+This project had multiple issues so I followed the following steps to make it better:
+1. Move the logic for parsing the JSON to the repository. The actual parsing happens in a background
+ thread using coroutines
+2. Introduce ViewModel and LiveData to make sure data survives configuration changes while the latter
+presents us reactive programming for easily updating the UI using the Observer pattern
+3. Use Dagger to inject dependencies easily
+4. Add some tests to the app
+5. Improve the aesthetics with stuff like loading spinners, rounded cards, and dark mode.
+6. Use DataBinding and ViewBinding to keep Kts clear
+7. Organize the build.gradle file (I think I could have gone for a Kotlin DSL but the project does not
+have that many dependencies so my approach is alright)
+8. Improve code documentation in general
+9. I would have loved to use the github api and parse the JSON from my repo but I felt that may be
+overkill. Why get the same data from the internet yet you have it offline already. However, this would
+have showcased my skills wit Retrofit and Coroutines even further. It would have necessitated the need
+for room as well so ultimately overkill.
+10. I wanted to break it down into modules but like 9, I felt it was overkill.
