@@ -58,3 +58,14 @@ overkill. Why get the same data from the internet yet you have it offline alread
 have showcased my skills wit Retrofit and Coroutines even further. It would have necessitated the need
 for room as well so ultimately overkill.
 10. I wanted to break it down into modules but like 9, I felt it was overkill.
+
+Note: I have been working on this code on my GitHub repo. However, the code is private and I would
+not like to make it public without your explicit permission. To circumvent this, I have created a
+new github user who has access to the repo.
+        username: guruMasterTest
+        password: onefootballcode
+
+My official GitHub profile is https://github.com/Fbada006
+
+Thanks!
+
