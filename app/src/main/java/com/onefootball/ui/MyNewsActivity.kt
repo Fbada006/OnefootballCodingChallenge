@@ -4,15 +4,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.onefootball.R
+import com.onefootball.databinding.ActivityMainBinding
 import com.onefootball.utils.OnNewsClickListener
 import com.onefootball.utils.Resource.Status.*
 import dagger.android.AndroidInjection
@@ -20,10 +17,10 @@ import javax.inject.Inject
 
 class MyNewsActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
+    //We will use viewBinding here because the need is just to remove findViewById as recommended
+    //by the Google team
+    private lateinit var binding: ActivityMainBinding
     private lateinit var myAdapter: NewsAdapter
-    private lateinit var progressBar: ProgressBar
-    private lateinit var noNewsTextView: TextView
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -33,18 +30,20 @@ class MyNewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        progressBar = findViewById(R.id.loading_spinner)
-        noNewsTextView = findViewById(R.id.no_news_found)
-        recyclerView = findViewById(R.id.newsRecyclerView)
         myAdapter = NewsAdapter(onNewsClickListener())
 
-        with(recyclerView) {
+        with(binding.newsRecyclerView) {
             adapter = myAdapter
             layoutManager = LinearLayoutManager(this@MyNewsActivity)
         }
 
+        observeViewModelNews()
+    }
+
+    private fun observeViewModelNews() {
         viewModel.news.observe(this, Observer {
             when (it.status) {
                 LOADING -> showLoading()
@@ -59,12 +58,12 @@ class MyNewsActivity : AppCompatActivity() {
     }
 
     private fun showLoading() {
-        progressBar.visibility = View.VISIBLE
-        noNewsTextView.visibility = View.GONE
+        binding.loadingSpinner.visibility = View.VISIBLE
+        binding.noNewsFound.visibility = View.GONE
     }
 
     private fun showError() {
-        noNewsTextView.visibility = View.VISIBLE
-        progressBar.visibility = View.GONE
+        binding.noNewsFound.visibility = View.VISIBLE
+        binding.loadingSpinner.visibility = View.GONE
     }
 }

@@ -32,6 +32,16 @@ android {
     dataBinding {
         enabled = true
     }
+
+    //If you are on Android Gradle Plugin lower than 4.0.0, uncomment the viewBinding block and comment out the
+    // buildFeatures block for viewBinding to work.
+    //Note: This will only work for Android Gradle Plugin 3.6.0 and above
+    //    viewBinding {
+    //        enabled = true
+    //    }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
