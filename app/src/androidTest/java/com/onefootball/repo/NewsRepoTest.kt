@@ -16,6 +16,9 @@ class NewsRepoTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
+    /**Make sure that the app gets the correct data from the assets folder.
+     * If the sleep() code is removed, the test will fail
+     * */
     @Test
     fun getNewsData_returnsAllTheNewsInAssets() {
         val news =
