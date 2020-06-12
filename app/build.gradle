@@ -81,9 +81,11 @@ dependencies {
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "androidx.test:runner:$runnerVersion"
     androidTestImplementation "com.google.truth:truth:$truthVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     androidTestImplementation "androidx.test:rules:$rulesVersion"
     androidTestImplementation "androidx.test.ext:junit:$extJunitVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 }
