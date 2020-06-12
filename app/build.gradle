@@ -59,11 +59,16 @@ dependencies {
     //GSON for serialization
     implementation "com.google.code.gson:gson:$gsonVersion"
 
-    //Ktx activity with cool extension functions
+    //Ktx libs with cool extension functions
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
+
+    //Preference
+    implementation "androidx.preference:preference-ktx:$preferenceVersion"
 
     //Dagger2
     implementation "com.google.dagger:dagger:$dagger2Version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:$dagger2Version"
     implementation "com.google.dagger:dagger-android:$dagger2Version"
     kapt "com.google.dagger:dagger-android-processor:$dagger2Version"

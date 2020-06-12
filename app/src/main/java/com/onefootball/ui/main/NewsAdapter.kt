@@ -1,4 +1,4 @@
-package com.onefootball.ui
+package com.onefootball.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

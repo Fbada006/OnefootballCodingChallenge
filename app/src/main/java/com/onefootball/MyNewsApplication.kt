@@ -1,7 +1,9 @@
 package com.onefootball
 
 import android.app.Application
+import androidx.preference.PreferenceManager
 import com.onefootball.di.DaggerAppComponent
+import com.onefootball.utils.ThemeHelper
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -21,6 +23,7 @@ class MyNewsApplication : Application(), HasAndroidInjector {
             .inject(this)
 
         initTimber()
+        setNightMode()
     }
 
     //We only want to log for debug builds only
@@ -28,6 +31,16 @@ class MyNewsApplication : Application(), HasAndroidInjector {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+    }
+
+    private fun setNightMode() {
+        val sharedPreferences =
+            PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        val themePref = sharedPreferences.getString(
+            getString(R.string.pref_night_mode_key)
+            , ThemeHelper.DEFAULT_MODE
+        )
+        ThemeHelper.applyTheme(themePref)
     }
 
     override fun androidInjector(): AndroidInjector<Any> = androidInjector

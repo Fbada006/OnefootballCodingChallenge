@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/activity_light_gray_background">
+    android:background="@color/activity_background">
 
     <ProgressBar
         android:id="@+id/loading_spinner"
@@ -34,5 +34,5 @@
         android:id="@+id/newsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MyNewsActivity" />
+        tools:context=".ui.main.MyNewsActivity" />
 </androidx.constraintlayout.widget.ConstraintLayout>

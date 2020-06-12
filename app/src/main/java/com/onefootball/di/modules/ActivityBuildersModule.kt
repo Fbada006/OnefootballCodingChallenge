@@ -1,6 +1,6 @@
 package com.onefootball.di.modules
 
-import com.onefootball.ui.MyNewsActivity
+import com.onefootball.ui.main.MyNewsActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
