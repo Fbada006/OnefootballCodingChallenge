@@ -21,7 +21,6 @@ import javax.inject.Inject
  * a LiveData to the ViewModel
  * */
 class NewsRepo @Inject constructor(private val context: Context) {
-    val TAG = "NewsRepo"
 
     //This is the LiveData that will hold the news resource and its loading status. Its mutable here
     //but the one presented to the UI must be immutable

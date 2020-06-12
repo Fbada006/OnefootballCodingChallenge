@@ -18,7 +18,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -29,18 +29,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    dataBinding {
-        enabled = true
-    }
 
-    //If you are on Android Gradle Plugin lower than 4.0.0, uncomment the viewBinding block and comment out the
-    // buildFeatures block for viewBinding to work.
-    //Note: This will only work for Android Gradle Plugin 3.6.0 and above
+    //If you are on Android Gradle Plugin lower than 4.0.0, uncomment the viewBinding and dataBinding
+    // blocks and comment out the
+    // buildFeatures block for viewBinding and dataBinding to work.
     //    viewBinding {
     //        enabled = true
     //    }
+    //    dataBinding {
+    //         enabled = true
+    //    }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -79,5 +80,10 @@ dependencies {
     //Testing deps
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "androidx.test:runner:$runnerVersion"
+    androidTestImplementation "com.google.truth:truth:$truthVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test:rules:$rulesVersion"
+    androidTestImplementation "androidx.test.ext:junit:$extJunitVersion"
 }

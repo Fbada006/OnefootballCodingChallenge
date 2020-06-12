@@ -63,7 +63,7 @@ class MyNewsActivity : AppCompatActivity() {
     }
 
     private fun observeViewModelNews() {
-        viewModel.news.observe(this, Observer {
+        viewModel.newsResource.observe(this, Observer {
             when (it.status) {
                 LOADING -> showLoading()
                 ERROR -> showError()

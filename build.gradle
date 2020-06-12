@@ -18,6 +18,9 @@ buildscript {
         timberVersion = '4.7.1'
         preferenceVersion = '1.1.1'
         fragmentVersion = '1.2.5'
+        extJunitVersion = '1.1.1'
+        rulesVersion = '1.2.0'
+        truthVersion = '1.0.1'
     }
 
     repositories {
