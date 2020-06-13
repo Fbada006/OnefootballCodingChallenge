@@ -1,3 +1,5 @@
+![Build Submission](https://github.com/Fbada006/OnefootballCodingChallenge/workflows/Build%20Submission/badge.svg)
+
 # Android Take Home Test
 
 The purpose of this test is to evaluate your technical skills, communication and mindset.
