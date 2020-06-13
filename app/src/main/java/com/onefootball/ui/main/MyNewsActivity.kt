@@ -15,14 +15,16 @@ import com.onefootball.R
 import com.onefootball.databinding.ActivityMainBinding
 import com.onefootball.ui.settings.SettingsActivity
 import com.onefootball.utils.OnNewsClickListener
-import com.onefootball.utils.Resource.Status.*
+import com.onefootball.utils.Resource.Status.ERROR
+import com.onefootball.utils.Resource.Status.LOADING
+import com.onefootball.utils.Resource.Status.SUCCESS
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
 class MyNewsActivity : AppCompatActivity() {
 
-    //We will use viewBinding here because the need is just to remove findViewById as recommended
-    //by the Google team
+    // We will use viewBinding here because the need is just to remove findViewById as recommended
+    // by the Google team
     private lateinit var binding: ActivityMainBinding
     private lateinit var myAdapter: NewsAdapter
 

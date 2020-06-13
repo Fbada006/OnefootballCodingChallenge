@@ -1,7 +1,11 @@
 package com.onefootball.ui.settings
 
 import android.os.Bundle
-import androidx.preference.*
+import androidx.preference.CheckBoxPreference
+import androidx.preference.ListPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SwitchPreference
 import com.onefootball.R
 import com.onefootball.utils.ThemeHelper
 

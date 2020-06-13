@@ -1,6 +1,8 @@
 package com.onefootball.utils
 
-import com.onefootball.utils.Resource.Status.*
+import com.onefootball.utils.Resource.Status.ERROR
+import com.onefootball.utils.Resource.Status.LOADING
+import com.onefootball.utils.Resource.Status.SUCCESS
 
 /**
  * A generic class that holds a value with its loading status.

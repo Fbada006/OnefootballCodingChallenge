@@ -22,8 +22,8 @@ import javax.inject.Inject
  * */
 class NewsRepo @Inject constructor(private val context: Context) {
 
-    //This is the LiveData that will hold the news resource and its loading status. Its mutable here
-    //but the one presented to the UI must be immutable
+    // This is the LiveData that will hold the news resource and its loading status. Its mutable here
+    // but the one presented to the UI must be immutable
     private val newsLiveData = MutableLiveData<Resource<List<News>>>()
 
     /**Get the news from the json. Instead of manually parsing it, which is a lengthy process and
