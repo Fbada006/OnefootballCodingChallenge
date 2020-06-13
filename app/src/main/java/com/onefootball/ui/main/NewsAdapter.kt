@@ -30,7 +30,7 @@ class NewsAdapter(private val clickListener: OnNewsClickListener) :
             binding.clickListener = clickListener
         }
 
-        //For inflating the layout in onCreateViewHolder()
+        // For inflating the layout in onCreateViewHolder()
         companion object {
             fun from(parent: ViewGroup): NewsViewHolder {
                 val binding =
