@@ -10,6 +10,7 @@ import dagger.android.HasAndroidInjector
 import timber.log.Timber
 import javax.inject.Inject
 
+/**The main application classa*/
 class MyNewsApplication : Application(), HasAndroidInjector {
 
     @Inject
@@ -26,7 +27,7 @@ class MyNewsApplication : Application(), HasAndroidInjector {
         setNightMode()
     }
 
-    //We only want to log for debug builds only
+    // We only want to log for debug builds only
     private fun initTimber() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
@@ -37,8 +38,8 @@ class MyNewsApplication : Application(), HasAndroidInjector {
         val sharedPreferences =
             PreferenceManager.getDefaultSharedPreferences(applicationContext)
         val themePref = sharedPreferences.getString(
-            getString(R.string.pref_night_mode_key)
-            , ThemeHelper.DEFAULT_MODE
+            getString(R.string.pref_night_mode_key),
+            ThemeHelper.DEFAULT_MODE
         )
         ThemeHelper.applyTheme(themePref)
     }

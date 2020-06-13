@@ -11,7 +11,7 @@ import com.onefootball.utils.OnNewsClickListener
 
 /**The [ListAdapter] is a better implementation because it also computes diffs between lists
  * all in the background using the [NewsDiffCallback]
- * */
+ */
 class NewsAdapter(private val clickListener: OnNewsClickListener) :
     ListAdapter<News, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
