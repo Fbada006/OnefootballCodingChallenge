@@ -41,7 +41,8 @@
                 android:layout_height="@dimen/item_news_image_size"
                 android:contentDescription="@string/content_description_news_image"
                 android:scaleType="centerCrop"
-                app:newsImage="@{news.imageURL}" />
+                app:newsImage="@{news.imageURL}"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView
                 android:id="@+id/news_title"
@@ -50,7 +51,8 @@
                 android:layout_margin="@dimen/item_card_margin"
                 android:text="@{news.title}"
                 android:textSize="@dimen/item_title_text_size"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="Messi or Ronaldo? Who is better?" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -65,7 +67,8 @@
                     android:layout_marginStart="@dimen/item_card_margin"
                     android:layout_marginTop="@dimen/item_card_margin"
                     android:contentDescription="@string/content_description_resource_icon"
-                    app:newsImage="@{news.resourceURL}" />
+                    app:newsImage="@{news.resourceURL}"
+                    tools:srcCompat="@android:drawable/btn_star_big_on" />
 
                 <TextView
                     android:id="@+id/resource_name"
@@ -74,7 +77,8 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/item_card_margin"
                     android:layout_marginTop="@dimen/item_card_margin_small"
-                    android:text="@{news.resourceName}" />
+                    android:text="@{news.resourceName}"
+                    tools:text="OneFootballGold" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

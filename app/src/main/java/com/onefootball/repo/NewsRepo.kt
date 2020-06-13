@@ -33,7 +33,7 @@ class NewsRepo @Inject constructor(private val context: Context) {
      * */
     fun getNewsData(): LiveData<Resource<List<News>>> {
         newsLiveData.postValue(Resource.loading(null))
-
+        Timber.d("Value is ${newsLiveData.value?.status}")
         val gson = Gson()
         val inputStream = context.assets.open("news.json")
         val size = inputStream.available()

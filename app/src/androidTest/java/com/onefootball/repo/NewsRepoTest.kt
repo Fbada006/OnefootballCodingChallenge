@@ -18,6 +18,7 @@ class NewsRepoTest {
 
     /**Make sure that the app gets the correct data from the assets folder.
      * If the sleep() code is removed, the test will fail
+     * Note: There is no need for test doubles here because the data is all local
      * */
     @Test
     fun getNewsData_returnsAllTheNewsInAssets() {
