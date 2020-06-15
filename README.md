@@ -55,7 +55,7 @@ explore that
 6. Improve the aesthetics with stuff like loading spinners, rounded cards, and dark mode.
 7. Use DataBinding and ViewBinding to keep .kts clear
 8. Organize the build.gradle file (I think I could have gone for a Kotlin DSL but the project does not
-have that many dependencies so my approach is alright)
+have that many dependencies so my approach is alright). Also added signing configs
 9. Improve code documentation in general
 10. I would have loved to use the github api and parse the JSON from my repo but I felt that may be
 overkill. Why get the same data from the internet yet you have it offline already. However, this would
