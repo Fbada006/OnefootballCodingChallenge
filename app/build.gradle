@@ -7,6 +7,16 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+
+    signingConfigs {
+        releaseConfig {
+            storeFile file('../keystore.jks')
+            storePassword 'password'
+            keyAlias 'testAlias'
+            keyPassword 'password'
+        }
+    }
+    
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.onefootball"
@@ -15,6 +25,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.releaseConfig
     }
     buildTypes {
         release {
