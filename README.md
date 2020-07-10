@@ -54,26 +54,7 @@ explore that
 5. Fix the failing CI checks by adding an extra step. These GitHub Actions are just awesome.
 6. Improve the aesthetics with stuff like loading spinners, rounded cards, and dark mode.
 7. Use DataBinding and ViewBinding to keep .kts clear
-8. Organize the build.gradle file (I think I could have gone for a Kotlin DSL but the project does not
-have that many dependencies so my approach is alright). Also added signing configs
+8. Organize the build.gradle file. Also added signing configs
 9. Improve code documentation in general
-10. I would have loved to use the github api and parse the JSON from my repo but I felt that may be
-overkill. Why get the same data from the internet yet you have it offline already. However, this would
-have showcased my skills wit Retrofit and Coroutines even further. It would have necessitated the need
-for room as well so ultimately overkill. However, getting live news from the API is better
-11. I wanted to break it down into modules but like 9, I felt it was overkill.
-12. If I could, I would add timestamps to the news. This would provide a better user experience because
-the settings could be updated to factor this in
-13. I also suggest adding videos to these news to play on the app to make for a more immersive
-experience
 
-Note: I have been working on this code on my GitHub repo. However, the code is private and I would
-not like to make it public without your explicit permission. To circumvent this, I have created a
-new github user who has access to the repo.\
-        username: guruMasterTest\
-        password: onefootballcode\
-
-\My official GitHub profile is https://github.com/Fbada006
-
-Thanks!
 
