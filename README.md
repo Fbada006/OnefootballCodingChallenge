@@ -57,7 +57,7 @@ explore that
 8. Organize the build.gradle file. Also added signing configs
 9. Improve code documentation in general
 
-##Note
+## Note
     //If you are on Android Gradle Plugin lower than 4.0.0, uncomment the viewBinding and dataBinding
     // blocks and comment out the
     // buildFeatures block for viewBinding and dataBinding to work in the build.gradle file (project level)
