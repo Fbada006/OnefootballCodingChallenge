@@ -31,6 +31,7 @@ class NewsRepo @Inject constructor(private val context: Context, private val gso
      * prone to errors, we just use GSON for easy parsing with minimum lines of code to keep things
      * clean.
      * We will use a background thread (using coroutines) to do the work just to be on the safe side
+     * TODO: Access the JSON on a different thread
      * */
     override fun getNewsData(): LiveData<Resource<List<News>>> {
         newsLiveData.postValue(Resource.loading(null))
