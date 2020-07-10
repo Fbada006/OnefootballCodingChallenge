@@ -20,12 +20,12 @@ import javax.inject.Inject
 /**This class gets the JSON and parses it using JSON then presents it as
  * a LiveData to the ViewModel
  * */
-class NewsRepo @Inject constructor(private val context: Context) : INewsRepo {
+class NewsRepo @Inject constructor(private val context: Context, private val gson: Gson) :
+    INewsRepo {
 
     // This is the LiveData that will hold the news resource and its loading status. Its mutable here
     // but the one presented to the UI must be immutable
     private val newsLiveData = MutableLiveData<Resource<List<News>>>()
-    private val gson = Gson()
 
     /**Get the news from the json. Instead of manually parsing it, which is a lengthy process and
      * prone to errors, we just use GSON for easy parsing with minimum lines of code to keep things

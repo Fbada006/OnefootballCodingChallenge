@@ -3,6 +3,7 @@ package com.onefootball.di
 import android.content.Context
 import com.onefootball.MyNewsApplication
 import com.onefootball.di.modules.ActivityBuildersModule
+import com.onefootball.di.modules.AppModule
 import com.onefootball.di.modules.ViewModelFactoryModule
 import com.onefootball.di.modules.ViewModelModule
 import dagger.BindsInstance
@@ -19,7 +20,8 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         ViewModelModule::class,
         ViewModelFactoryModule::class,
-        ActivityBuildersModule::class
+        ActivityBuildersModule::class,
+        AppModule::class
     ]
 )
 interface AppComponent {
