@@ -20,29 +20,31 @@ import javax.inject.Inject
 /**This class gets the JSON and parses it using JSON then presents it as
  * a LiveData to the ViewModel
  * */
-class NewsRepo @Inject constructor(private val context: Context) {
+@Suppress("BlockingMethodInNonBlockingContext")
+class NewsRepo @Inject constructor(private val context: Context) : INewsRepo {
 
     // This is the LiveData that will hold the news resource and its loading status. Its mutable here
     // but the one presented to the UI must be immutable
     private val newsLiveData = MutableLiveData<Resource<List<News>>>()
+    private val gson = Gson()
 
     /**Get the news from the json. Instead of manually parsing it, which is a lengthy process and
      * prone to errors, we just use GSON for easy parsing with minimum lines of code to keep things
      * clean.
      * We will use a background thread (using coroutines) to do the work just to be on the safe side
      * */
-    fun getNewsData(): LiveData<Resource<List<News>>> {
+    override fun getNewsData(): LiveData<Resource<List<News>>> {
         newsLiveData.postValue(Resource.loading(null))
         Timber.d("Value is ${newsLiveData.value?.status}")
-        val gson = Gson()
-        val inputStream = context.assets.open("news.json")
-        val size = inputStream.available()
-        val buffer = ByteArray(size)
-        inputStream.read(buffer)
-        inputStream.close()
 
         CoroutineScope(IO).launch {
             try {
+                val inputStream = context.assets.open("news.json")
+                val size = inputStream.available()
+                val buffer = ByteArray(size)
+                inputStream.read(buffer)
+                inputStream.close()
+
                 val jsonString = buffer.toString(Charset.defaultCharset())
                 val type = object : TypeToken<NewsResult>() {}.type
 
