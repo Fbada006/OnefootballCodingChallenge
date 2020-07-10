@@ -33,13 +33,17 @@ class MyNewsActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<NewsViewModel> { viewModelFactory }
 
+    private val onNewsClickListener = OnNewsClickListener { news ->
+        news?.let { it -> viewModel.displayNewsDetails(it) }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        myAdapter = NewsAdapter(onNewsClickListener())
+        myAdapter = NewsAdapter(onNewsClickListener)
 
         with(binding.newsRecyclerView) {
             adapter = myAdapter
@@ -84,10 +88,6 @@ class MyNewsActivity : AppCompatActivity() {
                 } else showError()
             }
         })
-    }
-
-    private fun onNewsClickListener() = OnNewsClickListener { news ->
-        news?.let { it -> viewModel.displayNewsDetails(it) }
     }
 
     private fun showLoading() {
