@@ -10,7 +10,6 @@ import dagger.android.HasAndroidInjector
 import timber.log.Timber
 import javax.inject.Inject
 
-/**The main application classa*/
 class MyNewsApplication : Application(), HasAndroidInjector {
 
     @Inject

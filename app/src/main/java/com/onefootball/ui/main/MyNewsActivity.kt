@@ -47,6 +47,15 @@ class MyNewsActivity : AppCompatActivity() {
         }
 
         observeViewModelNews()
+        observeNewsClickEvents()
+    }
+
+    private fun observeNewsClickEvents() {
+        viewModel.navigateToSelectedNews.observe(this, Observer {
+            it.getContentIfNotHandled()?.let { news ->
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(news.newsLink)))
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -78,7 +87,7 @@ class MyNewsActivity : AppCompatActivity() {
     }
 
     private fun onNewsClickListener() = OnNewsClickListener { news ->
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(news?.newsLink)))
+        news?.let { it -> viewModel.displayNewsDetails(it) }
     }
 
     private fun showLoading() {

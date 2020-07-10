@@ -20,7 +20,6 @@ import javax.inject.Inject
 /**This class gets the JSON and parses it using JSON then presents it as
  * a LiveData to the ViewModel
  * */
-@Suppress("BlockingMethodInNonBlockingContext")
 class NewsRepo @Inject constructor(private val context: Context) : INewsRepo {
 
     // This is the LiveData that will hold the news resource and its loading status. Its mutable here
@@ -36,15 +35,14 @@ class NewsRepo @Inject constructor(private val context: Context) : INewsRepo {
     override fun getNewsData(): LiveData<Resource<List<News>>> {
         newsLiveData.postValue(Resource.loading(null))
         Timber.d("Value is ${newsLiveData.value?.status}")
+        val inputStream = context.assets.open("news.json")
+        val size = inputStream.available()
+        val buffer = ByteArray(size)
+        inputStream.read(buffer)
+        inputStream.close()
 
         CoroutineScope(IO).launch {
             try {
-                val inputStream = context.assets.open("news.json")
-                val size = inputStream.available()
-                val buffer = ByteArray(size)
-                inputStream.read(buffer)
-                inputStream.close()
-
                 val jsonString = buffer.toString(Charset.defaultCharset())
                 val type = object : TypeToken<NewsResult>() {}.type
 
