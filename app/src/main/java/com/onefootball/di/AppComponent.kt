@@ -11,9 +11,7 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
-/**
- * Core Application Dagger Component
- */
+
 @Singleton
 @Component(
     modules = [
