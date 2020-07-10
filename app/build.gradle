@@ -41,15 +41,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    //If you are on Android Gradle Plugin lower than 4.0.0, uncomment the viewBinding and dataBinding
-    // blocks and comment out the
-    // buildFeatures block for viewBinding and dataBinding to work.
-    //    viewBinding {
-    //        enabled = true
-    //    }
-    //    dataBinding {
-    //         enabled = true
-    //    }
     buildFeatures {
         viewBinding = true
         dataBinding = true
