@@ -9,10 +9,8 @@ import com.onefootball.model.News
 import com.onefootball.model.NewsResult
 import com.onefootball.utils.Resource
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import timber.log.Timber
 import java.nio.charset.Charset
 import javax.inject.Inject
@@ -20,6 +18,7 @@ import javax.inject.Inject
 /**This class gets the JSON and parses it using JSON then presents it as
  * a LiveData to the ViewModel
  * */
+@Suppress("BlockingMethodInNonBlockingContext")
 class NewsRepo @Inject constructor(private val context: Context, private val gson: Gson) :
     INewsRepo {
 
@@ -36,21 +35,20 @@ class NewsRepo @Inject constructor(private val context: Context, private val gso
     override fun getNewsData(): LiveData<Resource<List<News>>> {
         newsLiveData.postValue(Resource.loading(null))
         Timber.d("Value is ${newsLiveData.value?.status}")
-        val inputStream = context.assets.open("news.json")
-        val size = inputStream.available()
-        val buffer = ByteArray(size)
-        inputStream.read(buffer)
-        inputStream.close()
 
         CoroutineScope(IO).launch {
             try {
+                val inputStream = context.assets.open("news.json")
+                val size = inputStream.available()
+                val buffer = ByteArray(size)
+                inputStream.read(buffer)
+                inputStream.close()
+
                 val jsonString = buffer.toString(Charset.defaultCharset())
                 val type = object : TypeToken<NewsResult>() {}.type
 
-                val newsResult = withContext(Dispatchers.Default) {
-                    val result: NewsResult = gson.fromJson(jsonString, type)
-                    result
-                }
+                val newsResult: NewsResult = gson.fromJson(jsonString, type)
+
                 newsLiveData.postValue(Resource.success(newsResult.news))
             } catch (e: Exception) {
                 Timber.e("Problem getting data from local JSON: $e")
