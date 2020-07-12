@@ -48,7 +48,12 @@ class NewsRepo @Inject constructor(private val context: Context, private val gso
 
                 val newsResult: NewsResult = gson.fromJson(jsonString, type)
 
-                newsLiveData.postValue(Resource.success(newsResult.news))
+                if (newsResult.news.isNotEmpty()) {
+                    newsLiveData.postValue(Resource.success(newsResult.news))
+                } else {
+                    newsLiveData.postValue(Resource.error("There is no data to display", null))
+                }
+
             } catch (e: Exception) {
                 Timber.e("Problem getting data from local JSON: $e")
                 newsLiveData.postValue(Resource.error(e.localizedMessage!!, null))

@@ -82,10 +82,10 @@ class MyNewsActivity : AppCompatActivity() {
             when (it.status) {
                 LOADING -> showLoading()
                 ERROR -> showError()
-                SUCCESS -> if (!it.data.isNullOrEmpty()) {
+                SUCCESS -> {
                     showNews()
                     myAdapter.submitList(it.data)
-                } else showError()
+                }
             }
         })
     }
